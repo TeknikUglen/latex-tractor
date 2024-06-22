@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=2cm,top=4cm,right=2cm,bottom=2.5cm,head=1cm]{geometry}% Setting geometry of page
+
+\usepackage[english]{babel}% Set localization of document
+\usepackage{lastpage}% To get access to lastpage parameter
+\usepackage[absolute]{textpos}% create textbox at given coordinates
+\usepackage{float}% prevent images from floating
+\usepackage{ulem}% Font styling
+\usepackage{ragged2e}% For text alignment
+
+% setup header and footer:
+\usepackage{scrlayer-scrpage}% For header and footer
+\clearpairofpagestyles% Clear header and footer
+\setlength{\footheight}{0.5cm}% aligning the footer
+\ofoot*{\vspace{0cm} \space\small{Page\ \thepage\space of \pageref*{LastPage} }}% Contents of right footer
+\ifoot{\small{Tractors Inc.}}
+
+% lipsum is only necessary when testing layout. 
+% It's a good way to generate dummy text.
+%\usepackage{lipsum}
+
+\usepackage{graphicx}% Used to include ps graphics files
+\usepackage{eso-pic}% Used for addtoshipoutpicture
+
+% hyperlinks
+\usepackage{hyperref}% For metadata and links
+\hypersetup{
+	colorlinks=true,    % false: boxed links; true: colored links
+	linkcolor=black,     % color of internal links
+	%citecolor=black,    % color of links to bibliography
+	%filecolor=black,  % color of file links
+	urlcolor=black      % color of external links
+}
+
+% macro to set background image for page
+\newcommand{\setBackground}[1]{
+	\ClearShipoutPicture
+	\AddToShipoutPicture{%
+		\put(0,0){\includegraphics{#1}}% Insert file as background
+}}
+
+% macro command to set title of document
+\newcommand{\setDocumentTitle}[1]{    
+	\def \bookTitle{#1}% This creates a referenced variable containing the title of the document.
+	\title{#1}%
+	\hypersetup {
+		pdftitle={#1}%This will set the pdf title
+	}
+}
+
+
+\begin{document}
+	\setDocumentTitle{Understanding Tractors}% should be before any pages are created.
+	
+	% set frontpage background
+	\thispagestyle{empty}
+	\setBackground{./frontTemplate/frontPageTemplate.pdf}
+	\hspace*{1em}% neccessary to force correct background
+	\newpage
+	
+	% set background for remaining pages
+	\setBackground{./pageTemplate/pageTemplate.pdf}%
+
+	
+	
+	% here the document main content starts
+	\begin{center}
+		\huge{\bookTitle}
+
+		\large{ Essential Workhorses in Agriculture and Beyond}
+	\end{center}
+	
+	\section{Introduction}
+	
+	Tractors are among the most versatile and indispensable pieces of equipment in agriculture, construction, and various industries. Originally designed to mechanize agricultural tasks, tractors have evolved into multifunctional machines that can handle a wide array of tasks across different sectors.
+	
+	\section{Design and Features}
+	
+	A tractor typically features a powerful diesel engine that drives large, rugged wheels or tracks. The engine's power is harnessed through a transmission with multiple gear options, providing the necessary torque and speed adapted to specific tasks. Modern tractors come equipped with a range of advanced features such as GPS navigation, auto-steering systems, and climate-controlled cabs, enhancing comfort and efficiency.
+	
+	The body of a tractor includes a chassis with an attached cab for the operator, which is often situated above the engine. This setup gives the operator a good view of the surroundings and the work at hand. Attached to the back of most tractors is a three-point hitch, a standard type of attachment system that allows for quick and secure connection of various implements.
+	
+	\section{Agricultural Uses}
+	
+	In agriculture, tractors are used to pull or power various farming implements for tasks such as plowing, tilling, planting, fertilizing, and harvesting. They are essential for both crop production and livestock management. Tractors can also operate hydraulic machinery, including loaders and backhoes, to manage materials such as feed, seeds, and soil amendments.
+	
+	\begin{itemize}
+		\item \textbf{Tillage}: Equipped with plows or harrows, tractors break up and aerate the soil, preparing it for planting.
+		\item \textbf{Planting}: Using seed drills or planters attached to tractors, farmers can sow seeds uniformly and efficiently.
+		\item \textbf{Crop Care}: Tractors facilitate the spraying of pesticides and herbicides, ensuring crops are free from pests and diseases.
+		\item \textbf{Harvesting}: Specialized attachments like combines and harvesters, powered by tractors, allow for efficient gathering of crops.
+	\end{itemize}
+
+	\section{Construction and Industrial Applications}
+	
+	Beyond agriculture, tractors find utility in construction sites, roadwork, and landscaping. Compact tractors, which are smaller and more maneuverable, are especially popular in urban construction and infrastructure maintenance.
+	
+	\begin{itemize}
+		\item \textbf{Landscaping}: Tractors pull a variety of tools for mowing, tilling, and spreading materials like mulch or gravel.
+		\item \textbf{Construction Tasks}: With attachments such as loaders and dozers, tractors move large quantities of earth and materials, aiding in site preparation and cleanup.
+		\item \textbf{Snow Removal}: Fitted with snowblow attachments, tractors become pivotal in maintaining accessibility and safety during winter months.
+	\end{itemize}
+	
+	\section{Conclusion}
+	
+	Tractors are the backbone of modern farming and are increasingly pivotal in urban construction and maintenance. With ongoing advancements in technology, tractors continue to evolve, becoming more efficient and environmentally friendly. As they adapt to the changing needs of agriculture and industry, tractors remain crucial in shaping the landscape of global productivity.
+	
+	
+		
+\end{document}

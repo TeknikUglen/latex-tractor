@@ -1,0 +1,29 @@
+\documentclass[a4paper,12pt,svgnames]{article}
+\usepackage[left=2cm,top=3cm,right=2cm,bottom=3cm,head=1cm]{geometry}% for setting geometry of page
+
+%\usepackage{tikz}% for adding figure drawings
+\usepackage{fancyhdr}% for controling fancy headers.
+
+\usepackage[absolute]{textpos}% for adding positioned text boxes
+\usepackage{graphicx}% for including images
+
+\usepackage[explicit]{titlesec}
+\pagestyle{fancy}% Enable fancy style on this page
+\fancypagestyle{plain}{%
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+\fancyhf{}% Clear header and footer
+
+\parindent=0pt% No indent on first line in paragraph
+
+
+\begin{document}
+	\thispagestyle{empty}
+	
+	% {textblocks}{textboxwidth}(xpos,ypos)
+	\begin{textblock*}{\paperwidth}(15mm,10mm)
+		\includegraphics[width=30mm]{../img/CloudIcon}%
+	\end{textblock*}%
+		
+\end{document}
